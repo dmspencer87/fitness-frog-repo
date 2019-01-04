@@ -2,14 +2,6 @@
 
 @{
     ViewBag.Title = "Add Entry";
-
-    var items = new[]
-    {
-        new { Id = "1", Name = "Item 1" },
-        new { Id = "2", Name = "Item 2" }
-    };
-
-    var selectListItems = new SelectList(items, "Id", "Name");
 }
 
 
@@ -29,7 +21,8 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-                @Html.DropDownListFor(m => m.ActivityId, selectListItems, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.ActivityId, 
+                                (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
                
             </div>
 
